@@ -78,10 +78,15 @@ app.post("/sendmail", async function (req, res) {
     /* ========= TRANSPORTER ========= */
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: { user, pass },
-    });
-
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user,
+    pass,
+  },
+  connectionTimeout: 10000,
+});
     /* ========= SEND EMAILS (SAFE WAY) ========= */
 
     for (let e of validEmails) {
