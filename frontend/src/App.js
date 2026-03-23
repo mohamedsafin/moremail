@@ -61,7 +61,7 @@ function App() {
     setStatus(true)
 
     axios
-      .post("http://localhost:5000/sendmail", { msg: msg, email: email })
+      .post("https://moremail.onrender.com/sendmail", { msg: msg, email: email })
       .then(function (data) {
         if (data.data.success) {
           alert("Emails sent successfully")
